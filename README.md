@@ -31,3 +31,98 @@ npm test -- --baseUrl="http://xxxx"
 
 > On windows if you recieve an alert about chrome extensions you can try to delete the string key 1 with value * from your registery
 > `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlacklist`
+
+
+## Best practices
+
+Bellow is a simple guide to create recommended folder structor, and test scripts best practice
+
+### Folder structor
+
+This is the recommended folder structor
+
+```dir
+ |-- test
+     |-- unit
+     |-- e2e
+         |-- home
+             |-- home.pageObject.js
+             |-- home.spec.js
+         |-- news
+             |-- news.pageObject.js
+             |-- news.spec.js
+         |-- news-archive
+             |-- news-archive.pageObject.js
+             |-- news-archive.spec.js
+```
+
+### Page object and spec
+
+Bellow is an example of page object, and spec that uses page object
+
+```js
+
+  /* example of "news.pageObject.js" */
+
+  var NewsPageObject = function() {
+      this.title = element(by.className('title'));
+      this.image = element(by.className('image'));
+      this.body = element(by.className('body'));
+      this.recentNews = element(by.className('recent-news'));
+      this.searchField = element(by.className('news-search-field'));
+      this.searchButton = element(by.className('news-search-button'));
+
+      this.search = function(keyword) {
+          this.searchField.sendKeys(keyword);
+          this.searchButton.click();
+      };
+  };
+  module.exports = NewsPageObject;
+
+
+  /* example of "news.spec.js" */
+
+  var NewsPageObject = require('./news.pageObject');
+
+  describe("The news item page", function() {
+
+      var newsPageObject = new NewsPageObject();
+
+      beforeEach(function() {
+          browser.get('/global/en/news-item/');
+      });
+
+      it('should have a title', function() {
+          expect(newsPageObject.title.getText()).toBeDefined();
+      });
+  });
+```
+
+### Test isolation
+
+Try to have `beforeAll` on each `describe` to reset any state
+
+```js
+       describe('when the user search for suggested keyword', function(){
+
+           beforeAll(function(){
+               searchPageObject.searchAreas.clickOn('All');
+               searchPageObject.searchField.clear().sendKeys('restaurant menu');
+               searchPageObject.searchButton.click();
+           });
+
+           it('should be displayed on sugested search results', function(){
+               expect(searchPageObject.sugestedList.get(0)).toBeDefined();
+           });
+       });
+```
+
+### What to avoid
+
+In order to write a clean test suits you should avoid the following cases:
+
+- Avoid duplicated tests or configs, only single config and single test parametrised
+- Avoid using selectors that are likely to change, use the most stable selector instead
+- Avoid multiple page object per file, one page object must be used in one spec
+- Avoid coupled tests, tests should be independent at file level
+- Avoid testing on a dirty state, ensure that you navigate to the page under test before each test if possible
