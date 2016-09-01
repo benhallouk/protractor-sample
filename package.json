@@ -1,0 +1,16 @@
+{
+  "name": "protractor-sample",
+  "version": "1.0.0",
+  "description": "protractor sample",
+  "dependencies": {},
+  "devDependencies": {
+    "protractor": "^4.0.4",    
+    "protractor-jasmine2-screenshot-reporter": "^0.3.2"
+  },
+  "scripts": {
+    "postinstall": "webdriver-manager update",
+    "test": "protractor conf.js"
+  },
+  "author": "Amine Benhallouk",
+  "license": "MIT"
+}
