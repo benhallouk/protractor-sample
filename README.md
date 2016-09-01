@@ -4,7 +4,10 @@ This is a simple guide to get started with end-2end testing using protractor and
 
 ## Instalation
 
-Just the node depandancies instalation using the command:
+First ensure you have Java Runtime Enviroment and that it is added to your path, [this will guide you to do that](https://docs.oracle.com/javase/tutorial/essential/environment/paths.html)
+
+
+Next is to install all node modules using the command:
 
 ```sh
 npm install
