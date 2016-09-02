@@ -13,6 +13,16 @@ Next is to install all node modules using the command:
 npm install
 ```
 
+> **⚠** If you are not using angular you may want ignore protractor from using angular so that you do not have an error, to do that add the following lines to your `conf.js` inside the `onPrepare` function in this way:
+
+```js
+ onPrepare: function() {
+    browser.ignoreSynchronization = true;
+    global.browser = browser;
+    jasmine.getEnv().addReporter(reporter);
+ }
+```
+
 ## Run the testing
 
 Just run regular node test command:
@@ -29,7 +39,7 @@ In orther to run the scripts against other enviroments just run the command bell
 npm test -- --baseUrl="http://xxxx"
 ```
 
-> On windows if you recieve an alert about chrome extensions you can try to delete the string key 1 with value * from your registery
+> **⚠** On windows if you recieve an alert about chrome extensions you can try to delete the string key 1 with value * from your registery
 > `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlacklist`
 
 
