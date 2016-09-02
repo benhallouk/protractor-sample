@@ -4,11 +4,11 @@ var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var reporter = new HtmlScreenshotReporter({
   dest: './reports',
   filename: 'index.html',
-  cleanDestination: false,
-  reportTitle: null,
+  cleanDestination: true,
+  reportTitle: "Intranet functionality health check",
   showSummary: true,
   showQuickLinks: true,
-  userCss: './reports/css/style.css'
+  userCss: '../css/style.css'
 });
 
 exports.config = {  
@@ -23,7 +23,9 @@ exports.config = {
     });
   },
   onPrepare: function() {
-    jasmine.getEnv().addReporter(reporter);
+      browser.ignoreSynchronization = true;
+      global.browser = browser;
+      jasmine.getEnv().addReporter(reporter);
   },
   afterLaunch: function(exitCode) {
     return new Promise(function(resolve){

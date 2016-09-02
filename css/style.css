@@ -1,0 +1,186 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+body{
+	padding: 10px 20%;
+	font-family: Georgia,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1em;
+	color: #00386B;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #00386B;
+}
+a, a:focus, a:hover, a:active {
+    color: #0097D1 !important;
+    text-decoration: none;
+}
+
+#summary.passed {
+    border: 1px solid #74AA50;
+    padding: 0 30px 10px;
+	margin:10px 0;
+}
+
+.config {
+    border: 0px solid #74AA50;
+    padding: 30px;
+	margin:10px 0;
+	    background-color: rgb(0, 151, 209);
+    font-family: "Segoe UI", Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    color: rgb(255, 255, 255);
+    padding: 10px 30px 20px;
+	color:#fff;
+	    color: #fff;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.config li { color:#fff; }
+.config h4 { 
+	color:#fff;     
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 5px; }
+
+#summary.passed  h4{
+	color:#74AA50;
+	font-size:20px;
+	padding-top:15px;
+	padding-bottom:5px;
+}
+
+#summary.passed #summaryTotalFailed {
+	display:none;
+}
+
+#summary.failed {
+    border: 1px solid #E04E39;
+    padding: 0 30px 10px;
+}
+
+#summary.failed  h4{
+	color:#E04E39;
+	font-size:20px;
+	padding-top:15px;
+	padding-bottom:5px;
+}
+
+
+#summary.failed ul#quickLinks li a:before {
+
+margin-left:25px;
+  content: "✗";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-weight:800;
+  margin-right:10px;          
+}
+
+ul li { padding: 10px 0; }
+h4 { 
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+h1 {
+    margin-bottom: 4px;    
+	background: #fff url('http://fbd-net/common-assets/img/header_logo.png') no-repeat 0px;
+    color: #00386B !important;
+    padding: 16px;
+    font-size: 22px;
+    padding-left: 456px;
+}
+
+h2, h3, h4, h5, h6 {
+    color: #0097D1 !important;
+}
+
+
+#summary h4,#summary li, #summary li a{
+	color: #fff !important;
+}
+
+#summary.passed{
+    color: #fff !important;
+    background: #74AA50 !important;
+}
+
+#summary.failed{
+    color: #fff !important;
+    background: #E04E39 !important;
+}
+
+.failed{
+    color: #E04E39;
+}
+.failed + a, .failed  a{
+    color:#E04E39 !important;
+    text-decoration: underline
+}
+
+span.stacktrace {
+	margin-top: 8px;
+    white-space: pre;
+    border: none;
+    font-size: 10pt;
+    padding: 14px;
+    background-color: #e04e39;
+    color: #fff;
+    overflow-x: scroll;
+}
+
+.passed{
+    color:#74AA50;
+}
+.passed + a{
+    color:#74AA50 !important;
+    text-decoration: underline
+}
+
+.config h4{
+	color: #fff !important;
+}
