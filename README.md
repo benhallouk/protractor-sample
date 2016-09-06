@@ -42,6 +42,8 @@ multiCapabilities: [
 
 > **⚠ The IE require protected mode settings to be the same for all zones**
 
+> **⚠ If you observe any performance issues consider switching the diriver from 64bit to 32bit**
+
 ## Run the testing
 
 Just run regular node test command:
