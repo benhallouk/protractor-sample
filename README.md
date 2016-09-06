@@ -23,6 +23,25 @@ npm install
  }
 ```
 
+> **⚠** If you need to run the test using IE, you will have to down load [the driver](http://selenium-release.storage.googleapis.com/index.html?path=2.53/) and to configure it in the following way
+
+```js
+//add the path to the download driver
+seleniumArgs: ['-Dwebdriver.ie.driver=your-path/IEDriverServer.exe'],
+
+// add browser capabilities
+multiCapabilities: [
+    {
+        browserName: 'chrome'
+    },
+    {
+        browserName: 'internet explorer'
+    }
+]
+```
+
+> **⚠ The IE require protected mode settings to be the same for all zones**
+
 ## Run the testing
 
 Just run regular node test command:
