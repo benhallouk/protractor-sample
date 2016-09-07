@@ -52,6 +52,9 @@ Just run regular node test command:
 npm test
 ```
 
+> **⚠** On windows if you recieve an alert about chrome extensions you can try to delete the string key 1 with value * from your registery
+> `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlacklist`
+
 ## Run the test aginst diffrent enviroments
 
 In orther to run the scripts against other enviroments just run the command bellow passing the right base url 
@@ -60,9 +63,9 @@ In orther to run the scripts against other enviroments just run the command bell
 npm test -- --baseUrl="http://xxxx"
 ```
 
-> **⚠** On windows if you recieve an alert about chrome extensions you can try to delete the string key 1 with value * from your registery
-> `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlacklist`
+## Run aginst specific browser
 
+To test a specific browser run the command `npm test -- --browser="chrome" --multiCapabilities`
 
 ## Best practices
 
