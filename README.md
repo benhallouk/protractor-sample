@@ -67,6 +67,12 @@ npm test -- --baseUrl="http://xxxx"
 
 To test a specific browser run the command `npm test -- --browser="chrome" --multiCapabilities`
 
+## Send reports to specific folder
+
+To specify the folder of where the reports will be created `npm test -- --reporterDest="c:/report"`
+
+> **⚠** `--reporterDest` must be set as the parameter when adding multiple parameters example `npm test -- --browser="chrome" --multiCapabilities --reporterDest="c:/report"`
+
 ## Best practices
 
 Bellow is a simple guide to create recommended folder structor, and test scripts best practice

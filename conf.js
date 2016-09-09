@@ -1,8 +1,18 @@
 
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 
+var getReportDestination = function(){
+      const args = process.argv.slice(2)+"";
+      const index = args.search(/--reporterDest=/);
+      if(index>-1){
+        const value = args.substr(index).split('=')[1];        
+        return value;
+      }
+      return false;      
+};
+
 var reporter = new HtmlScreenshotReporter({
-  dest: './reports',
+  dest: getReportDestination() || './reports',
   filename: 'index.html',
   cleanDestination: true,
   reportTitle: "Intranet functionality health check",
