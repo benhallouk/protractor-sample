@@ -13,6 +13,26 @@ Next is to install all node modules using the command:
 npm install
 ```
 
+> **⚠** If you are running an old version of chrome for example 57, you need to install the webdriver that coresponde to your chrome version [details about versions can be found here](https://sites.google.com/a/chromium.org/chromedriver/downloads)
+
+Here is the commands to update to version 2.28 for chrome 57
+```sh
+webdriver-manager update --versions.chrome=2.28
+```
+
+After that you need to start your selenium manually
+```sh
+webdriver-manager start --versions.chrome=2.28
+```
+
+Finally update your config.js to use the port instead of pulling the last selenium driver that crosponde to up todate chrome version
+```js
+exports.config = {  
+  //seleniumServerJar: './node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-2.53.1.jar',
+  //seleniumPort: null,
+  seleniumPort: 4444,
+```
+
 > **⚠** If you are not using angular you may want ignore protractor from using angular so that you do not have an error, to do that add the following lines to your `conf.js` inside the `onPrepare` function in this way:
 
 ```js
